@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 // const controller = require('../controllers/controller');
 
@@ -7,16 +7,20 @@
 // app.route('/distance/:zipcode1/:zipcode2').get(controller.getDistance);
 // }
 
+console.log('routes.js')
 
-var express = require('express');
+// var express = require('express');
+import express from 'express'
+import { doSomething } from './controller.js';
+
 var router = express.Router();
-const { createUser, userLogin, updateProfile, getCurrentUser } = require('./controller')
+// const { doSomething } = require('./controller')
+
 
 // Routes
-router.get('/', function (req, res, next) { res.send('hello from user router'); });
-router.post('/create-user', checkIsEmpty, validateEmail, validateUserData, createUser)
-router.get('/user', jwtMiddleware, getCurrentUser)
-router.put('/update-profile', jwtMiddleware, checkIsEmpty, validateUserData, confirmPassword, updateProfile)
-router.post('/login', validateEmail, userLogin)
+router.get('/', function (req, res, next) { res.send('response from pexel microservice'); });
+router.get('/yeet', doSomething)
 
-module.exports = router
+// module.exports = router
+
+export { router as apiRouter};
