@@ -1,35 +1,39 @@
-// 'use strict';
+// Environment
+import * as dotenv from 'dotenv'
+dotenv.config()
 
-
-
+// Pexels Client
 import { createClient } from 'pexels';
+const client = createClient(process.env.API_KEY)
 
-const client = createClient('563492ad6f9170000100000144eaa09f28e94e348786a56aa851f4fe');
+// Global Params
+const resultsPerPage = 10
 
-
-export const doSomething = async (req, res) => {
+// params: page
+export const getCurated = async (req, res) => {
     try {
-
-
-        const foundUser = 420
-
-
-        // fetch('https://jsonplaceholder.typicode.com/todos/1')
-        // res.status(200).json({ message: "Current user", payload: foundUser });
-
-
-        // client.photos.search({ query: 'nature', per_page: 5, page: 1 })
-        // .then(photos => console.log(photos))
-
-
-        const photos = await client.photos.search({ query: 'nature', per_page: 5, page: 1 })
-
-
-        res.status(200).json({ message: "Current user", payload: photos });
-
+        const photos = await client.photos.curated({
+            per_page: resultsPerPage,
+            page: req.params.page
+        })
+        res.status(200).json({ message: "success", payload: photos })
 
     } catch (error) {
-        res.status(500).json({ error: error });
+        res.status(500).json({ error: error })
     }
 }
 
+// params: query, page
+export const getSearch = async (req, res) => {
+    try {
+        const photos = await client.photos.search({
+            query: req.params.query,
+            per_page: resultsPerPage,
+            page: req.params.page
+        })
+        res.status(200).json({ message: "success", payload: photos })
+
+    } catch (error) {
+        res.status(500).json({ error: error })
+    }
+}

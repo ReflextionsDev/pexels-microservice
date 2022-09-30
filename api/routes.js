@@ -1,21 +1,22 @@
-// 'use strict';
+'use strict'
 
 
-// var express = require('express');
 import express from 'express'
-import { doSomething } from './controller.js';
+var router = express.Router()
 
-var router = express.Router();
+
+import { getCurated, getSearch } from './controller.js'
+
 // const { doSomething } = require('./controller')
 
 // Curation, Search
 // Routes need post params, current page, search term
-// Store search term / in local cookie
+// Store search term & page/ in local cookie
 
 // Routes
-router.get('/', function (req, res, next) { res.send('response from pexel microservice'); });
-router.get('/yeet', doSomething)
+// Add middleware to parse out page, then could assemble thing?
+router.get('/', (req, res) => { res.send('pexel microservice is running') })
+router.get('/curated/:page', getCurated)
+router.get('/search/:query/:page', getSearch)
 
-// module.exports = router
-
-export { router as apiRouter};
+export { router as apiRouter }

@@ -1,6 +1,6 @@
-import { createClient } from 'pexels';
+import { createClient } from 'pexels'
 
-const client = createClient('563492ad6f9170000100000144eaa09f28e94e348786a56aa851f4fe');
+const client = createClient('563492ad6f9170000100000144eaa09f28e94e348786a56aa851f4fe')
 
 // All requests made with the client will be authenticated
 
