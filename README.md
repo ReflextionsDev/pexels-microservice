@@ -1,5 +1,6 @@
 # Pexels Microservice
 Node/Express wrapper for the Pexels API
+For more details: https://www.pexels.com/api/documentation/
 
 ## Scripts
 - npm run start (defaults to local env)
