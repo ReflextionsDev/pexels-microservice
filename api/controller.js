@@ -9,19 +9,27 @@ const client = createClient('563492ad6f9170000100000144eaa09f28e94e348786a56aa85
 
 export const doSomething = async (req, res) => {
     try {
+
+
         const foundUser = 420
 
 
         // fetch('https://jsonplaceholder.typicode.com/todos/1')
-        const query = 'Nature';
-        client.photos.search({ query, per_page: 1, page: 1 })
-
-            .then(response => response.json())
-            .then(json => console.log(json))
-
         // res.status(200).json({ message: "Current user", payload: foundUser });
+
+
+        // client.photos.search({ query: 'nature', per_page: 5, page: 1 })
+        // .then(photos => console.log(photos))
+
+
+        const photos = await client.photos.search({ query: 'nature', per_page: 5, page: 1 })
+
+
+        res.status(200).json({ message: "Current user", payload: photos });
+
+
     } catch (error) {
-        res.status(500).json({ error: errorHandler(error) });
+        res.status(500).json({ error: error });
     }
 }
 

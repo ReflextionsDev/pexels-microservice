@@ -16,6 +16,9 @@ import { doSomething } from './controller.js';
 var router = express.Router();
 // const { doSomething } = require('./controller')
 
+// Curation, Search
+// Routes need post params, current page, search term
+// Store search term / in local cookie
 
 // Routes
 router.get('/', function (req, res, next) { res.send('response from pexel microservice'); });
