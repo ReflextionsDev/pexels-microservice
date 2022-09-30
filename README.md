@@ -3,11 +3,12 @@ Node/Express wrapper for the Pexels API
 
 For more details: https://www.pexels.com/api/documentation/
 
-Example route: http://localhost:3000/search/dog/2
+Example route: http://localhost:3000/pexels/search/dog/2
 
 ## Routes
-- /curated/:page
-- /search/:query/:page
+- /pexels
+  - /curated/:page
+  - /search/:query/:page
 
 ## Scripts
 - npm run start (defaults to local env)

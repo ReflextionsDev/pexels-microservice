@@ -2,7 +2,6 @@
 import express from 'express'
 const router = express.Router()
 
-
 // Routes
 import { getCurated, getSearch } from './controller.js'
 
