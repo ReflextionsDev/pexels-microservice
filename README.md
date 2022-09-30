@@ -17,7 +17,7 @@ Example route: http://localhost:3000/pexels/search/dog/2
 
 ## Environment Vars
 - API_KEY (Pexels API key https://www.pexels.com/api/new/)
-- PORT (optional, defaults to 3000)
+- *PORT* (optional, defaults to 3000)
 
 ## Dev Dependencies
 - cross-env (script env var support for powershell)
