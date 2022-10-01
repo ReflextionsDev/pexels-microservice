@@ -10,6 +10,10 @@ console.log('Environment: ', env)
 import express from 'express'
 const app = express()
 
+// CORS
+import cors from 'cors'
+app.use(cors());
+
 // Routes
 import { apiRouter } from './api/routes.js'
 app.use('/pexels', apiRouter)
